@@ -1,0 +1,339 @@
+.speakers {
+  width: 100%;
+  overflow: hidden;
+
+  padding: 100px 0 120px;
+
+  background: #000000;
+  color: #ffffff;
+
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+/* ==============================
+   HEADER
+================================ */
+
+.header {
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto 72px;
+  padding: 0 52px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 5vw, 82px);
+  font-weight: 500;
+
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+}
+
+.header p {
+  margin: 8px 0 0;
+
+  max-width: 190px;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.45;
+
+  color: #a4a4a4;
+}
+
+/* ==============================
+   MARQUEE
+================================ */
+
+.marquee {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+
+  width: max-content;
+
+  gap: 14px;
+
+  will-change: transform;
+}
+
+/* TOP → RIGHT */
+
+.moveRight {
+  animation: moveRight 32s linear infinite;
+}
+
+/* BOTTOM → LEFT */
+
+.moveLeft {
+  animation: moveLeft 32s linear infinite;
+}
+
+.row:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 7px));
+  }
+}
+
+@keyframes moveRight {
+  from {
+    transform: translateX(calc(-50% - 7px));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ==============================
+   CARD
+================================ */
+
+.card {
+  position: relative;
+
+  flex: 0 0 250px;
+
+  width: 250px;
+  height: 330px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+
+/* ==============================
+   TEXT CARD
+================================ */
+
+.textCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 30px;
+
+  background: #dedee0;
+  color: #161616;
+}
+
+.card h3 {
+  margin: 0;
+
+  max-width: 160px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.card p {
+  margin: 0;
+
+  max-width: 150px;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+/* ==============================
+   IMAGE CARD
+================================ */
+
+.imageCard {
+  background: #1c1a1b;
+}
+
+.image {
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 30px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.06) 20%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+
+  color: #ffffff;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .speakers {
+    padding: 80px 0 100px;
+  }
+
+  .header {
+    padding: 0 32px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    flex-basis: 220px;
+
+    width: 220px;
+    height: 300px;
+
+    border-radius: 24px;
+  }
+
+  .textCard,
+  .imageOverlay {
+    padding: 25px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .speakers {
+    padding: 64px 0 80px;
+  }
+
+  .header {
+    margin-bottom: 42px;
+    padding: 0 16px;
+
+    display: block;
+  }
+
+  .header h2 {
+    font-size: 40px;
+
+    line-height: 0.92;
+  }
+
+  .header p {
+    display: none;
+  }
+
+  .marquee {
+    gap: 8px;
+  }
+
+  .track {
+    gap: 8px;
+  }
+
+  .card {
+    flex: 0 0 145px;
+
+    width: 145px;
+    height: 210px;
+
+    border-radius: 16px;
+  }
+
+  .textCard,
+  .imageOverlay {
+    padding: 15px;
+  }
+
+  .card h3 {
+    max-width: 100px;
+
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .card p {
+    max-width: 100px;
+
+    font-size: 7px;
+    line-height: 1.35;
+  }
+
+  .moveRight,
+  .moveLeft {
+    animation-duration: 25s;
+  }
+
+  @keyframes moveLeft {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 4px));
+    }
+  }
+
+  @keyframes moveRight {
+    from {
+      transform: translateX(calc(-50% - 4px));
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .row {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .row::-webkit-scrollbar {
+    display: none;
+  }
+}

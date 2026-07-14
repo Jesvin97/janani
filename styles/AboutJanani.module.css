@@ -1,0 +1,465 @@
+.section {
+  width: 100%;
+  padding: 110px 24px 130px;
+
+  overflow: hidden;
+
+  background: #000000;
+  color: #ffffff;
+
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 14px;
+}
+
+/* CONTENT */
+
+.content {
+  min-height: 680px;
+
+  padding: 52px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #1c1a1b;
+
+  border-radius: 30px;
+}
+
+.label {
+  font-size: 9px;
+  font-weight: 600;
+
+  color: #a4a4a4;
+}
+
+.content h2 {
+  margin: 80px 0 0;
+
+  font-size: clamp(62px, 5.3vw, 88px);
+  font-weight: 500;
+
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+
+  text-transform: uppercase;
+}
+
+.content p {
+  max-width: 500px;
+
+  margin: 54px 0 0;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  color: #a4a4a4;
+}
+
+/* CTA */
+
+.cta {
+  width: 172px;
+  height: 40px;
+
+  margin-top: auto;
+  padding: 0 17px 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #0346ff 0%,
+    #0647ed 48%,
+    #17347d 100%
+  );
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  text-decoration: none;
+}
+
+.cta span {
+  font-size: 13px;
+
+  transition: transform 300ms ease;
+}
+
+.cta:hover span {
+  transform: translate(3px, -3px);
+}
+
+/* =========================
+   VISUAL
+========================= */
+
+.visual {
+  position: relative;
+
+  min-height: 680px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #1c1a1b;
+
+  border-radius: 30px;
+
+  isolation: isolate;
+}
+
+/* ORBITS */
+
+.orbitOuter,
+.orbitInner {
+  position: absolute;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+}
+
+.orbitOuter {
+  width: 610px;
+  height: 610px;
+
+  animation: orbitPulse 8s ease-in-out infinite;
+}
+
+.orbitInner {
+  width: 410px;
+  height: 410px;
+
+  border-style: dashed;
+
+  animation: orbitRotate 35s linear infinite reverse;
+}
+
+@keyframes orbitRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitPulse {
+  50% {
+    transform: scale(1.04);
+    opacity: 0.55;
+  }
+}
+
+/* BLOOM */
+
+.bloom {
+  position: relative;
+
+  width: 400px;
+  height: 400px;
+
+  animation: bloomRotate 32s linear infinite;
+
+  will-change: transform;
+}
+
+@keyframes bloomRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* PETALS */
+
+.petal {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 72px;
+  height: 175px;
+
+  background: #0346ff;
+
+  border-radius: 100% 0 100% 0;
+
+  transform-origin: 0 0;
+
+  transform:
+    rotate(var(--rotation))
+    translateY(-185px);
+
+  animation: petalPulse 5s ease-in-out infinite;
+
+  animation-delay: var(--delay);
+
+  will-change: transform;
+}
+
+@keyframes petalPulse {
+  0%,
+  100% {
+    scale: 0.92;
+    opacity: 0.65;
+  }
+
+  50% {
+    scale: 1.05;
+    opacity: 1;
+  }
+}
+
+/* CORE */
+
+.core {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 126px;
+  height: 126px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #0346ff;
+
+  animation: coreCounterRotate 32s linear infinite;
+}
+
+@keyframes coreCounterRotate {
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-360deg);
+  }
+}
+
+.core span {
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.core strong {
+  font-size: 22px;
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+/* WORDS */
+
+.outerText {
+  position: absolute;
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.outerText span {
+  position: absolute;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  color: #a4a4a4;
+}
+
+.outerText span:nth-child(1) {
+  top: 42px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.outerText span:nth-child(2) {
+  right: 42px;
+  top: 50%;
+}
+
+.outerText span:nth-child(3) {
+  bottom: 42px;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.outerText span:nth-child(4) {
+  left: 42px;
+  top: 50%;
+}
+
+.visualIndex {
+  position: absolute;
+
+  left: 30px;
+  bottom: 28px;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  color: #a4a4a4;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 12px 90px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .content {
+    min-height: 500px;
+
+    padding: 26px 22px;
+
+    border-radius: 20px;
+  }
+
+  .label {
+    font-size: 7px;
+  }
+
+  .content h2 {
+    margin-top: 54px;
+
+    font-size: clamp(46px, 14vw, 62px);
+  }
+
+  .content p {
+    max-width: 290px;
+
+    margin-top: 34px;
+
+    font-size: 10px;
+  }
+
+  .cta {
+    width: 166px;
+    height: 40px;
+
+    font-size: 10px;
+  }
+
+  /* VISUAL */
+
+  .visual {
+    min-height: 420px;
+
+    border-radius: 20px;
+  }
+
+  .bloom {
+    width: 270px;
+    height: 270px;
+
+    animation-duration: 45s;
+  }
+
+  .petal {
+    width: 48px;
+    height: 118px;
+
+    transform:
+      rotate(var(--rotation))
+      translateY(-125px);
+  }
+
+  .core {
+    width: 88px;
+    height: 88px;
+
+    animation-duration: 45s;
+  }
+
+  .core span {
+    font-size: 7px;
+  }
+
+  .core strong {
+    font-size: 16px;
+  }
+
+  .orbitOuter {
+    width: 370px;
+    height: 370px;
+  }
+
+  .orbitInner {
+    width: 270px;
+    height: 270px;
+  }
+
+  .outerText span {
+    font-size: 7px;
+  }
+
+  .outerText span:nth-child(1) {
+    top: 24px;
+  }
+
+  .outerText span:nth-child(2) {
+    right: 20px;
+  }
+
+  .outerText span:nth-child(3) {
+    bottom: 24px;
+  }
+
+  .outerText span:nth-child(4) {
+    left: 20px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom,
+  .core,
+  .orbitInner,
+  .orbitOuter,
+  .petal {
+    animation: none;
+  }
+}

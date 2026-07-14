@@ -1,0 +1,343 @@
+/* ==============================
+   WHY ATTEND
+================================ */
+
+.section {
+  width: 100%;
+  padding: 110px 24px 130px;
+
+  overflow: hidden;
+
+  background: #000000;
+  color: #ffffff;
+
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto;
+}
+
+/* ==============================
+   HEADER
+================================ */
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 72px;
+}
+
+.title {
+  margin: 0;
+
+  font-size: clamp(64px, 5.3vw, 88px);
+  font-weight: 500;
+
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+}
+
+.intro {
+  width: 190px;
+
+  margin: 8px 0 0;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+
+  color: #a4a4a4;
+}
+
+/* ==============================
+   GRID
+================================ */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+/* ==============================
+   CARD
+================================ */
+
+.card {
+  position: relative;
+
+  min-height: 250px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 30px;
+
+  background: #1c1a1b;
+
+  border-radius: 28px;
+}
+
+/* NUMBER */
+
+.number {
+  position: absolute;
+
+  left: 28px;
+  bottom: -36px;
+
+  font-size: clamp(130px, 11vw, 190px);
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: -0.07em;
+
+  color: #0346ff;
+}
+
+/* CONTENT */
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+
+  width: 48%;
+
+  margin-left: auto;
+}
+
+.cardContent h3 {
+  margin: 0;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1;
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.cardContent p {
+  max-width: 210px;
+
+  margin: 42px 0 0;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+
+  color: #a4a4a4;
+}
+
+/* ==============================
+   FIFTH CARD
+================================ */
+
+.featuredCard {
+  grid-column: 1 / -1;
+
+  min-height: 280px;
+}
+
+.featuredCard .number {
+  left: auto;
+  right: 32px;
+
+  bottom: -52px;
+
+  font-size: clamp(170px, 16vw, 250px);
+}
+
+.featuredCard .cardContent {
+  width: 42%;
+
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.featuredCard .cardContent p {
+  max-width: 360px;
+}
+
+/* ==============================
+   HOVER
+================================ */
+
+.card {
+  transition: transform 350ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 90px 32px 110px;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .card {
+    min-height: 230px;
+  }
+
+  .number {
+    font-size: 130px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 18px 90px;
+  }
+
+  /* HEADER */
+
+  .header {
+    display: block;
+
+    margin-bottom: 42px;
+  }
+
+  .title {
+    font-size: clamp(42px, 12vw, 54px);
+
+    line-height: 0.92;
+  }
+
+  .intro {
+    width: 240px;
+
+    margin-top: 22px;
+
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* GRID */
+
+  .grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  /* CARD */
+
+  .card,
+  .featuredCard {
+    grid-column: auto;
+
+    min-height: 178px;
+
+    padding: 24px;
+
+    border-radius: 22px;
+  }
+
+  /* NUMBER */
+
+  .number,
+  .featuredCard .number {
+    left: 20px;
+    right: auto;
+
+    bottom: -20px;
+
+    font-size: 105px;
+  }
+
+  /* CONTENT */
+
+  .cardContent,
+  .featuredCard .cardContent {
+    width: 56%;
+
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .cardContent h3 {
+    font-size: 9px;
+  }
+
+  .cardContent p,
+  .featuredCard .cardContent p {
+    max-width: 160px;
+
+    margin-top: 30px;
+
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+/* ==============================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 380px) {
+  .section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .card,
+  .featuredCard {
+    min-height: 170px;
+
+    padding: 20px;
+  }
+
+  .number,
+  .featuredCard .number {
+    left: 16px;
+
+    font-size: 92px;
+  }
+
+  .cardContent,
+  .featuredCard .cardContent {
+    width: 57%;
+  }
+
+  .cardContent p,
+  .featuredCard .cardContent p {
+    font-size: 9px;
+  }
+}

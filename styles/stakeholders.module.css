@@ -1,0 +1,323 @@
+.section {
+  width: 100%;
+  padding: 110px 24px 140px;
+
+  overflow: hidden;
+
+  background: #000000;
+  color: #ffffff;
+
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto;
+}
+
+/* ==============================
+   HEADER
+================================ */
+
+.header {
+  margin-bottom: 70px;
+}
+
+.header h2 {
+  margin: 0;
+
+  font-size: clamp(64px, 5.3vw, 88px);
+  font-weight: 500;
+
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+}
+
+/* ==============================
+   CARDS
+================================ */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  align-items: center;
+
+  padding: 0 28px;
+}
+
+.card {
+  position: relative;
+
+  min-height: 380px;
+
+  padding: 42px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 34px;
+
+  transition:
+    transform 350ms ease,
+    z-index 350ms ease;
+}
+
+.card:nth-child(1) {
+  transform: translateX(24px) scale(0.92);
+  z-index: 1;
+}
+
+.card:nth-child(2) {
+  transform: scale(1);
+  z-index: 3;
+}
+
+.card:nth-child(3) {
+  transform: translateX(-24px) scale(0.92);
+  z-index: 1;
+}
+
+.card:hover {
+  z-index: 5;
+  transform: translateY(-8px) scale(1);
+}
+
+/* ==============================
+   THEMES
+================================ */
+
+.dark {
+  background: #1c1a1b;
+  color: #ffffff;
+}
+
+.blue {
+  background: #0346ff;
+  color: #ffffff;
+}
+
+.light {
+  background: #dedee0;
+  color: #161616;
+}
+
+/* ==============================
+   CARD TYPOGRAPHY
+================================ */
+
+.card h3 {
+  max-width: 240px;
+
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+
+  text-transform: uppercase;
+}
+
+.message {
+  max-width: 300px;
+
+  margin: 58px 0 0;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+
+  color: inherit;
+}
+
+/* ==============================
+   PERSON
+================================ */
+
+.person {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: auto;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #a4a4a4;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  color: #ffffff;
+}
+
+.blue .avatar {
+  background: #dedee0;
+  color: #161616;
+}
+
+.light .avatar {
+  background: #1c1a1b;
+  color: #ffffff;
+}
+
+.personInfo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.name {
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.role {
+  font-size: 9px;
+  font-weight: 400;
+
+  line-height: 1.3;
+
+  opacity: 0.65;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 90px 24px 110px;
+  }
+
+  .card {
+    min-height: 340px;
+    padding: 32px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+  }
+
+  .message {
+    margin-top: 44px;
+    font-size: 11px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 14px 90px;
+  }
+
+  .header {
+    margin-bottom: 42px;
+  }
+
+  .header h2 {
+    font-size: clamp(40px, 12vw, 52px);
+
+    line-height: 0.92;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: 0;
+  }
+
+  .card,
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3) {
+    width: 100%;
+
+    min-height: 260px;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    transform: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card h3 {
+    max-width: 180px;
+
+    font-size: 15px;
+    line-height: 0.95;
+  }
+
+  .message {
+    max-width: 230px;
+
+    margin-top: 30px;
+
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+
+    font-size: 7px;
+  }
+
+  .name {
+    font-size: 8px;
+  }
+
+  .role {
+    font-size: 7px;
+  }
+}
+
+/* ==============================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 380px) {
+  .header h2 {
+    font-size: 38px;
+  }
+
+  .card {
+    min-height: 240px;
+    padding: 24px;
+  }
+}
