@@ -421,3 +421,181 @@
     font-size: 46px;
   }
 }
+
+ /* =========================================================
+   LEGACY CTA
+========================================================= */
+
+.legacyButton {
+  width: min(100%, 390px);
+  height: 88px;
+
+  margin-top: 44px;
+  padding: 8px 8px 8px 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+
+  background: #0346ff;
+  color: #ffffff;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  cursor: pointer;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.legacyButtonText {
+  position: relative;
+  z-index: 2;
+
+  font-family: "Satoshi", sans-serif;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.025em;
+
+  white-space: nowrap;
+
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.legacyButtonIcon {
+  width: 72px;
+  height: 72px;
+
+  flex: 0 0 72px;
+
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  background: #003bd8;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  transition:
+    background 0.35s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+  IMPORTANT:
+  This prevents global SVG styles from
+  turning the arrow into a giant graphic.
+*/
+
+.legacyButtonIcon .legacyArrow {
+  width: 28px !important;
+  height: 28px !important;
+
+  min-width: 28px !important;
+  min-height: 28px !important;
+
+  max-width: 28px !important;
+  max-height: 28px !important;
+
+  display: block;
+
+  position: static;
+
+  flex: none;
+
+  transform: none;
+
+  color: #ffffff;
+
+  overflow: visible;
+}
+
+/* =========================================================
+   BUTTON BACKGROUND MOTION
+========================================================= */
+
+.legacyButton::before {
+  content: "";
+
+  width: 90px;
+  height: 90px;
+
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+
+  z-index: 1;
+
+  background: #dedee0;
+
+  border-radius: 50%;
+
+  transform: translate(10%, -50%) scale(0);
+
+  transform-origin: center;
+
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.legacyButton:hover {
+  color: #000000;
+
+  transform: translateY(-2px);
+}
+
+.legacyButton:hover::before {
+  transform: translate(10%, -50%) scale(6);
+}
+
+.legacyButton:hover .legacyButtonText {
+  transform: translateX(8px);
+}
+
+.legacyButton:hover .legacyButtonIcon {
+  background: #000000;
+
+  transform: rotate(45deg);
+}
+
+.legacyButton:hover .legacyArrow {
+  color: #ffffff;
+}
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.legacyButton:active {
+  transform: scale(0.985);
+}
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.legacyButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}

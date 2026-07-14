@@ -9,51 +9,80 @@ export default function Hero() {
       <div className={styles.heroCard}>
         {/* TOP META */}
         <div className={styles.topBar}>
-          <span>APJ ABDUL KALAM INTERNATIONAL FOUNDATION</span>
-          <span>JAN 08—10, 2026</span>
+          <span className={styles.foundation}>
+            APJ ABDUL KALAM INTERNATIONAL FOUNDATION
+          </span>
+
+          
         </div>
 
-        {/* HERO CONTENT */}
+        {/* HERO STATEMENT */}
         <div className={styles.heroContent}>
-          <span className={styles.eyebrow}>HONOURING</span>
-
           <div className={styles.statement}>
-            <div className={styles.wordRow}>
-              <h1>MOTHERS</h1>
+            <span className={styles.eyebrow}>HONOURING</span>
 
-              <div className={styles.connector}>
-                <span className={styles.line} />
-                <span>EMPOWERING</span>
-              </div>
+            <h1 className={styles.heroWord}>MOTHERS</h1>
+
+            <div className={styles.divider}>
+              <span className={styles.dividerLine} />
+
+              <span className={styles.dividerLabel}>
+                EMPOWERING
+              </span>
+
+              <span className={styles.dividerLine} />
             </div>
 
-            <div className={styles.wordRow}>
-              <h1>WOMEN</h1>
+            <h1 className={styles.heroWord}>WOMEN</h1>
 
-              <div className={styles.connector}>
-                <span className={styles.line} />
-                <span>BUILDING</span>
-              </div>
+            <div className={styles.divider}>
+              <span className={styles.dividerLine} />
+
+              <span className={styles.dividerLabel}>
+                BUILDING
+              </span>
+
+              <span className={styles.dividerLine} />
             </div>
 
-            <div className={styles.wordRow}>
-              <h1>NATIONS</h1>
-            </div>
+            <h1 className={styles.heroWord}>NATIONS</h1>
           </div>
+        </div>
 
-          <div className={styles.bottom}>
-            <p>
-              JANANI 2026 is a global platform celebrating women who lead,
-              inspire and transform communities. Bringing together mothers,
-              entrepreneurs, educators, healthcare professionals, innovators
-              and changemakers to shape a better tomorrow.
-            </p>
+        {/* BOTTOM INFORMATION */}
+        <div className={styles.bottomContent}>
+          <p className={styles.description}>
+            JANANI 2026 is a global platform celebrating women who
+            lead, inspire and transform communities. Bringing together
+            mothers, entrepreneurs, educators, healthcare
+            professionals, innovators and changemakers to shape a
+            better tomorrow.
+          </p>
 
-            <Link href="/about" className={styles.cta}>
-              Explore Janani
-              <span aria-hidden="true">↗</span>
-            </Link>
-          </div>
+         
+            <Link href="/about" className={styles.discoverButton}>
+                <span className={styles.buttonText}>Explore Janani</span>
+
+                <span className={styles.buttonArrow} aria-hidden="true">
+                     
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 19L19 5M19 5H8M19 5V16"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                    />
+                  </svg>
+                   
+                </span>
+              </Link>
+           
         </div>
 
         {/* ANIMATED BLOOM */}

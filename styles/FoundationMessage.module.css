@@ -1,0 +1,805 @@
+/* ==========================================================
+   FOUNDATION MESSAGE
+   JANANI 2026
+   SWISS EDITORIAL × DIGITAL ARCHIVE
+========================================================== */
+
+.section {
+  width: 100%;
+
+  padding: clamp(80px, 10vw, 160px) 16px;
+
+  background: #000000;
+
+  font-family: "Satoshi", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   SECTION META
+========================================================== */
+
+.sectionMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #2b292a;
+
+  color: #a4a4a4;
+
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.6fr)
+    minmax(280px, 0.6fr);
+
+  align-items: end;
+
+  gap: 64px;
+
+  padding: clamp(48px, 7vw, 100px) 0;
+}
+
+.header h2 {
+  max-width: 1100px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(56px, 7.4vw, 124px);
+  font-weight: 600;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+}
+
+.header p {
+  max-width: 390px;
+
+  margin: 0 0 8px;
+
+  color: #a4a4a4;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================
+   EDITORIAL GRID
+========================================================== */
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+/* ==========================================================
+   PORTRAIT CARD
+========================================================== */
+
+.portraitCard {
+  grid-column: span 4;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #1c1a1b;
+
+  border-radius: 28px;
+}
+
+.portraitMedia {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  background: #dedee0;
+}
+
+.portraitImage {
+  object-fit: cover;
+
+  object-position: center top;
+
+  transition: transform 700ms
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portraitCard:hover .portraitImage {
+  transform: scale(1.025);
+}
+
+.portraitIndex {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  color: #ffffff;
+
+  background: #000000;
+
+  border-radius: 50%;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================
+   PERSON INFO
+========================================================== */
+
+.personInfo {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 390px;
+
+  padding: 28px;
+}
+
+.personLabel {
+  margin-bottom: 42px;
+
+  color: #a4a4a4;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.personName {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(34px, 3.5vw, 58px);
+  font-weight: 600;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.05em;
+
+  text-transform: uppercase;
+}
+
+.personFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-top: auto;
+
+  padding-top: 48px;
+}
+
+.personFooter p {
+  margin: 0;
+
+  color: #a4a4a4;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.5;
+}
+
+.personFooter > span {
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================
+   LETTER CARD
+========================================================== */
+
+.letterCard {
+  grid-column: span 8;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 900px;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  background: #dedee0;
+
+  border-radius: 28px;
+}
+
+/* ==========================================================
+   LETTER META
+========================================================== */
+
+.letterMeta {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  color: #000000;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   DOCUMENT
+========================================================== */
+
+.documentButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+
+  width: 100%;
+
+  padding: 50px 20px;
+
+  background: transparent;
+
+  border: 0;
+
+  cursor: pointer;
+}
+
+.document {
+  width: min(78%, 650px);
+
+  transform: rotate(-1.5deg);
+
+  transform-origin: center;
+
+  transition: transform 600ms
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.documentImage {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.letterCard:hover .document {
+  transform: rotate(0deg) scale(1.015);
+}
+
+/* ==========================================================
+   LETTER FOOTER
+========================================================== */
+
+.letterFooter {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  width: 100%;
+}
+
+.letterFooter > span {
+  color: #575556;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.viewDocument {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0;
+
+  color: #000000;
+
+  background: transparent;
+
+  border: 0;
+
+  font-family: "Satoshi", sans-serif;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.viewDocument span {
+  font-size: 20px;
+
+  transition: transform 250ms ease;
+}
+
+.viewDocument:hover span {
+  transform: translate(4px, -4px);
+}
+
+/* ==========================================================
+   QUOTE CARD
+========================================================== */
+
+.quoteCard {
+  grid-column: 1 / -1;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 600px;
+
+  margin-top: 0;
+
+  padding: clamp(32px, 5vw, 72px);
+
+  overflow: hidden;
+
+  background: #0346ff;
+
+  border-radius: 28px;
+}
+
+.quoteMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.quote {
+  max-width: 1350px;
+
+  margin: auto 0 0;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 6.3vw, 108px);
+  font-weight: 600;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+}
+
+.quoteArrow {
+  position: absolute;
+
+  right: clamp(32px, 5vw, 72px);
+  bottom: clamp(32px, 5vw, 72px);
+
+  font-size: clamp(34px, 4vw, 68px);
+  font-weight: 300;
+
+  color: #ffffff;
+}
+
+/* ==========================================================
+   LAPTOP
+========================================================== */
+
+@media (max-width: 1200px) {
+  .header {
+    grid-template-columns: 1fr 320px;
+
+    gap: 48px;
+  }
+
+  .portraitCard {
+    grid-column: span 5;
+  }
+
+  .letterCard {
+    grid-column: span 7;
+
+    min-height: 800px;
+  }
+
+  .personInfo {
+    min-height: 340px;
+  }
+
+  .document {
+    width: min(86%, 600px);
+  }
+
+  .quoteCard {
+    min-height: 520px;
+  }
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 100px 14px;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+
+    padding: 60px 0;
+  }
+
+  .header p {
+    max-width: 460px;
+  }
+
+  .portraitCard {
+    grid-column: span 5;
+  }
+
+  .letterCard {
+    grid-column: span 7;
+
+    min-height: 720px;
+  }
+
+  .personInfo {
+    min-height: 320px;
+
+    padding: 24px;
+  }
+
+  .personLabel {
+    margin-bottom: 34px;
+  }
+
+  .personName {
+    font-size: clamp(30px, 4.5vw, 46px);
+  }
+
+  .documentButton {
+    padding: 42px 10px;
+  }
+
+  .document {
+    width: 92%;
+  }
+
+  .quoteCard {
+    min-height: 500px;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 88px 10px;
+  }
+
+  .sectionMeta {
+    padding: 0 4px 16px;
+
+    font-size: 9px;
+  }
+
+  /* HEADER */
+
+  .header {
+    gap: 28px;
+
+    padding: 48px 4px 56px;
+  }
+
+  .header h2 {
+    font-size: clamp(48px, 14vw, 72px);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+  }
+
+  .header p {
+    max-width: 340px;
+
+    font-size: 13px;
+  }
+
+  /* GRID */
+
+  .grid {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  /* PORTRAIT */
+
+  .portraitCard {
+    grid-column: 1;
+
+    border-radius: 24px;
+  }
+
+  .portraitMedia {
+    aspect-ratio: 4 / 4.8;
+  }
+
+  .portraitIndex {
+    top: 16px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .personInfo {
+    min-height: 340px;
+
+    padding: 24px;
+  }
+
+  .personLabel {
+    margin-bottom: 42px;
+
+    font-size: 9px;
+  }
+
+  .personName {
+    font-size: clamp(42px, 12vw, 62px);
+  }
+
+  .personFooter {
+    padding-top: 48px;
+  }
+
+  /* LETTER */
+
+  .letterCard {
+    grid-column: 1;
+
+    min-height: auto;
+
+    padding: 20px;
+
+    border-radius: 24px;
+  }
+
+  .letterMeta {
+    font-size: 9px;
+  }
+
+  .documentButton {
+    padding: 50px 0;
+  }
+
+  .document {
+    width: 90%;
+
+    transform: rotate(-1deg);
+  }
+
+  .letterFooter {
+    align-items: flex-end;
+  }
+
+  .letterFooter > span {
+    max-width: 150px;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+  }
+
+  /* QUOTE */
+
+  .quoteCard {
+    grid-column: 1;
+
+    min-height: 560px;
+
+    padding: 28px 24px;
+
+    border-radius: 24px;
+  }
+
+  .quoteMeta {
+    font-size: 8px;
+  }
+
+  .quote {
+    padding-bottom: 50px;
+
+    font-size: clamp(42px, 12.5vw, 64px);
+
+    line-height: 0.9;
+  }
+
+  .quoteArrow {
+    right: 24px;
+    bottom: 24px;
+
+    font-size: 42px;
+  }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: clamp(44px, 13.5vw, 62px);
+  }
+
+  .portraitMedia {
+    aspect-ratio: 4 / 5;
+  }
+
+  .personInfo {
+    min-height: 320px;
+
+    padding: 22px;
+  }
+
+  .personName {
+    font-size: clamp(38px, 11.5vw, 54px);
+  }
+
+  .personFooter p {
+    max-width: 210px;
+
+    font-size: 12px;
+  }
+
+  .letterCard {
+    padding: 18px;
+  }
+
+  .documentButton {
+    padding: 42px 0;
+  }
+
+  .document {
+    width: 94%;
+  }
+
+  .viewDocument {
+    font-size: 12px;
+  }
+
+  .quoteCard {
+    min-height: 520px;
+
+    padding: 24px 20px;
+  }
+
+  .quote {
+    font-size: clamp(38px, 11.8vw, 54px);
+  }
+
+  .quoteArrow {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitImage,
+  .document,
+  .viewDocument span {
+    transition: none;
+  }
+
+  .portraitCard:hover .portraitImage,
+  .letterCard:hover .document,
+  .viewDocument:hover span {
+    transform: none;
+  }
+}

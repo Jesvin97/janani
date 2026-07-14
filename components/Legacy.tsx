@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Legacy.module.css";
 
+
 export default function Legacy() {
   return (
     <section className={styles.section}>
@@ -24,7 +25,7 @@ export default function Legacy() {
 
           <article className={styles.imageCard}>
             <Image
-              src="/images/kalam.jpg"
+              src="/images/kalam.png"
               alt="Dr. A.P.J. Abdul Kalam"
               fill
               priority
@@ -40,7 +41,7 @@ export default function Legacy() {
           {/* CONTENT */}
 
           <article className={styles.contentCard}>
-            <span className={styles.index}>01 / LEGACY</span>
+            
 
             <h3>
               DREAM.
@@ -56,10 +57,29 @@ export default function Legacy() {
               opportunity to rise, lead and transform the world.
             </p>
 
-            <Link href="/legacy" className={styles.cta}>
-              Explore His Legacy
-              <span>↗</span>
-            </Link>
+            
+ <Link href="/legacy" className={styles.legacyButton}>
+  <span className={styles.legacyButtonText}>
+    Explore His Legacy
+  </span>
+
+  <span className={styles.legacyButtonIcon}>
+    <svg
+      className={styles.legacyArrow}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 19L19 5M19 5H8M19 5V16"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+      />
+    </svg>
+  </span>
+</Link>
           </article>
 
           {/* QUOTE */}

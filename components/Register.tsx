@@ -175,11 +175,11 @@ export default function Register() {
           {/* FORM */}
 
           <form className={styles.form} onSubmit={handleSubmit}>
-            <h3>GET IN TOUCH</h3>
+            <h3>REGISTER NOW</h3>
 
             <p>
-              Reach out with inquiries about tickets, partnerships, or
-              event details.
+        
+Gain exclusive access to expert-led sessions, networking opportunities, and industry-shaping insights. Secure your place today.
             </p>
 
             <input type="text" placeholder="Name" aria-label="Name" />
@@ -187,9 +187,11 @@ export default function Register() {
             <input type="email" placeholder="Email" aria-label="Email" />
 
             <input
-              type="text"
-              placeholder="Subject"
-              aria-label="Subject"
+              type="tel"
+              placeholder="Phone Number"
+              aria-label="Phone Number"
+              pattern="[0-9]{10,15}"
+  required
             />
 
             <textarea
@@ -198,7 +200,7 @@ export default function Register() {
               rows={3}
             />
 
-            <button type="submit">Send message</button>
+            <button type="submit">Register</button>
           </form>
 
           {/* MAP */}
