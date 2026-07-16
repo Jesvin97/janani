@@ -6,11 +6,11 @@ import styles from "../styles/Navbar.module.css";
 
 const navLinks = [
   { label: "About", href: "/" },
-  { label: "Schedule", href: "/schedule" },
-  { label: "Speakers", href: "/speakers" },
-  { label: "Tickets", href: "/tickets" },
-  { label: "Venue", href: "/venue" },
-  { label: "Sponsors", href: "/sponsors" },
+  { label: "Schedule", href: "/#schedule" },
+  { label: "Speakers", href: "/#speakers" },
+  { label: "Tickets", href: "/#tickets" },
+  { label: "Venue", href: "/#venue" },
+  { label: "Sponsors", href: "/#sponsors" },
 ];
 
 export default function Navbar() {
