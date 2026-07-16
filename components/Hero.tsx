@@ -7,19 +7,20 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroCard}>
-        {/* TOP META */}
-        <div className={styles.topBar}>
-          <span className={styles.foundation}>
-            APJ ABDUL KALAM INTERNATIONAL FOUNDATION
-          </span>
-
-          
-        </div>
+       
 
         {/* HERO STATEMENT */}
         <div className={styles.heroContent}>
           <div className={styles.statement}>
-            <span className={styles.eyebrow}>HONOURING</span>
+            <div className={styles.divider}>
+              <span className={styles.dividerLine} />
+
+              <span className={styles.dividerLabel}>
+                HONOURING
+              </span>
+
+              <span className={styles.dividerLine} />
+            </div>
 
             <h1 className={styles.heroWord}>MOTHERS</h1>
 
@@ -52,36 +53,38 @@ export default function Hero() {
         {/* BOTTOM INFORMATION */}
         <div className={styles.bottomContent}>
           <p className={styles.description}>
-            JANANI 2026 is a global platform celebrating women who
-            lead, inspire and transform communities. Bringing together
-            mothers, entrepreneurs, educators, healthcare
-            professionals, innovators and changemakers to shape a
-            better tomorrow.
-          </p>
+  <span className={styles.janani}>Janani</span> is a global platform
+  celebrating women who lead, inspire and transform communities. Bringing
+  together mothers, entrepreneurs, educators, healthcare professionals,
+  innovators and changemakers to shape a better tomorrow.
+</p>
 
          
             <Link href="/about" className={styles.discoverButton}>
-                <span className={styles.buttonText}>Explore Janani</span>
+  <span className={styles.discoverButtonText}>
+    Explore Janani
+  </span>
 
-                <span className={styles.buttonArrow} aria-hidden="true">
-                     
-
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 19L19 5M19 5H8M19 5V16"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="square"
-                      strokeLinejoin="miter"
-                    />
-                  </svg>
-                   
-                </span>
-              </Link>
+  <span
+    className={styles.discoverButtonIcon}
+    aria-hidden="true"
+  >
+    <svg
+      className={styles.discoverArrow}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 19L19 5M19 5H8M19 5V16"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+      />
+    </svg>
+  </span>
+</Link>
            
         </div>
 

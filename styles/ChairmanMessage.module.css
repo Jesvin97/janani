@@ -287,7 +287,7 @@
   max-width: 680px;
   margin: 54px 0 68px;
 
-  color: #000000;
+  color: #0D152A;
 
   font-size: clamp(78px, 7.7vw, 148px);
   font-weight: 600;
@@ -341,7 +341,7 @@
 .messageFooter p {
   margin: 0;
 
-  color: #0346ff;
+  color: #0D152A;
 
   font-size: clamp(21px, 2vw, 34px);
   font-weight: 600;
@@ -413,7 +413,7 @@
   height: 9px;
 
   border-radius: 50%;
-  background: #0346ff;
+  background: #DBA657;
 
   transform: translate(-50%, -50%);
 }

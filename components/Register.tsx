@@ -3,12 +3,14 @@
 import { FormEvent, useEffect, useState } from "react";
 import styles from "../styles/Register.module.css";
 
-const EVENT_DATE = new Date("2026-01-08T09:00:00");
+const EVENT_DATE = new Date("2026-07-24T09:00:00");
 
 type TimeLeft = {
   days: number;
   hours: number;
   minutes: number;
+  seconds: number;
+  
 };
 
 export default function Register() {
@@ -16,6 +18,7 @@ export default function Register() {
     days: 0,
     hours: 0,
     minutes: 0,
+    seconds: 0,
   });
 
   useEffect(() => {
@@ -27,6 +30,7 @@ export default function Register() {
           days: 0,
           hours: 0,
           minutes: 0,
+          seconds: 0,
         });
 
         return;
@@ -34,18 +38,15 @@ export default function Register() {
 
       setTimeLeft({
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (difference / (1000 * 60 * 60)) % 24
-        ),
-        minutes: Math.floor(
-          (difference / (1000 * 60)) % 60
-        ),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / (1000 * 60)) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
       });
     };
 
     updateCountdown();
 
-    const timer = window.setInterval(updateCountdown, 60_000);
+    const timer = window.setInterval(updateCountdown, 1000);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -108,6 +109,15 @@ export default function Register() {
 
                 <span>MINUTES</span>
               </div>
+              <span className={styles.separator}>:</span>
+            <div className={styles.timeItem}>
+                <strong>
+                  {String(timeLeft.seconds).padStart(2, "0")}
+                </strong>
+
+                <span>SECONDS</span>
+              </div>
+              
             </div>
           </div>
 
@@ -182,9 +192,13 @@ export default function Register() {
 Gain exclusive access to expert-led sessions, networking opportunities, and industry-shaping insights. Secure your place today.
             </p>
 
-            <input type="text" placeholder="Name" aria-label="Name" />
+            <input type="text" 
+            placeholder="Name" 
+            aria-label="Name" />
 
-            <input type="email" placeholder="Email" aria-label="Email" />
+            <input type="email"
+             placeholder="Email" 
+             aria-label="Email" />
 
             <input
               type="tel"

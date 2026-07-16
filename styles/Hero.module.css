@@ -164,9 +164,9 @@
 }
 
 .dividerLabel {
-  color: #a4a4a4;
+  color: #d4a53a;
 
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   line-height: 1;
 
@@ -180,6 +180,15 @@
 /* ==========================================================
    BOTTOM CONTENT
 ========================================================== */
+
+.janani {
+  color: #dba657;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+   
+  letter-spacing: -0.02em;
+}
 
 .bottomContent {
   position: relative;
@@ -335,7 +344,7 @@
 }
 
 .bloomCore {
-  fill: #0346ff;
+  fill: #DBA657;
 }
 
 /* ==========================================================
@@ -537,6 +546,195 @@
   }
 }
 
+/* EXPLORE BUTTON*/
+.discoverButton {
+  width: min(100%, 500px);
+  min-height: 104px;
+
+  margin-top: 44px;
+  padding: 8px 10px 8px 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #0346ff;
+  color: #ffffff;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   BUTTON TEXT
+========================================================= */
+
+.discoverButtonText {
+  position: relative;
+  z-index: 2;
+
+  font-family: "Satoshi", sans-serif;
+
+  font-size: clamp(24px, 2vw, 34px);
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.035em;
+
+  white-space: nowrap;
+
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
+.discoverButtonIcon {
+  width: 86px;
+  height: 86px;
+
+  flex: 0 0 86px;
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+  z-index: 2;
+
+  background: rgba(0, 0, 0, 0.12);
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.discoverButtonIcon .discoverArrow {
+  width: 35px !important;
+  height: 35px !important;
+
+  min-width: 35px !important;
+  min-height: 35px !important;
+
+  max-width: 35px !important;
+  max-height: 35px !important;
+
+  display: block;
+
+  position: static;
+
+  flex: none;
+
+  transform: none;
+
+  color: #ffffff;
+
+  overflow: visible;
+
+  transition: color 0.4s ease;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.discoverButton:hover {
+  background: #dedee0;
+  color: #000000;
+
+  transform: translateY(-3px);
+}
+
+.discoverButton:hover .discoverButtonText {
+  transform: translateX(6px);
+}
+
+.discoverButton:hover .discoverButtonIcon {
+  background: #dba657;
+  color: #ffffff;
+
+  transform: rotate(45deg);
+}
+
+.discoverButton:hover .discoverArrow {
+  color: #ffffff;
+}
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.discoverButton:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.discoverButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .discoverButton {
+    width: 100%;
+    min-height: 82px;
+
+    margin-top: 32px;
+    padding: 7px 8px 7px 30px;
+  }
+
+  .discoverButtonText {
+    font-size: clamp(20px, 5vw, 25px);
+  }
+
+  .discoverButtonIcon {
+    width: 68px;
+    height: 68px;
+
+    flex-basis: 68px;
+  }
+
+  .discoverButtonIcon .discoverArrow {
+    width: 28px !important;
+    height: 28px !important;
+
+    min-width: 28px !important;
+    min-height: 28px !important;
+
+    max-width: 28px !important;
+    max-height: 28px !important;
+  }
+}
+
 /* ==========================================================
    SMALL MOBILE
 ========================================================== */
@@ -613,93 +811,3 @@
   }
 }
 
-/* =========================================================
-   DISCOVER BUTTON
-========================================================= */
-
-.discoverButton {
-  width: min(100%, 500px);
-  min-height: 104px;
-
-  padding: 8px 10px 8px 54px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  position: relative;
-  overflow: hidden;
-
-  background: #0346ff;
-  color: #ffffff;
-
-  border-radius: 999px;
-
-  text-decoration: none;
-
-  transition:
-    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.buttonText {
-  position: relative;
-  z-index: 2;
-
-  font-size: clamp(24px, 2vw, 34px);
-  font-weight: 500;
-  line-height: 1;
-
-  letter-spacing: -0.035em;
-}
-
-.buttonArrow {
-  width: 86px;
-  height: 86px;
-
-  flex: 0 0 86px;
-
-  display: grid;
-  place-items: center;
-
-  position: relative;
-  z-index: 2;
-
-  background: rgba(0, 0, 0, 0.12);
-
-  border-radius: 50%;
-
-  transition:
-    background 0.4s ease,
-    color 0.4s ease,
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.buttonArrow svg {
-  width: 35px;
-  height: 35px;
-}
-
-.discoverButton:hover {
-  background: #dedee0;
-  color: #000000;
-
-  transform: translateY(-3px);
-}
-
-.discoverButton:hover .buttonArrow {
-  background: #0346ff;
-  color: #ffffff;
-
-  transform: rotate(45deg);
-}
-
-.discoverButton:active {
-  transform: translateY(0) scale(0.99);
-}
-
-.discoverButton:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 5px;
-}

@@ -19,16 +19,15 @@ export default function AboutJanani() {
 
           <div className={styles.contentBody}>
             <h2 className={styles.title}>
-              WHAT IS
+             <span className={styles.What}>What</span>
+              IS <span className={styles.Janani}>JANANI</span>?
               <br />
-              JANANI
-              <br />
-              2026?
+            
             </h2>
 
             <div className={styles.contentBottom}>
               <p className={styles.description}>
-                JANANI 2026 is a national movement and an immersive experience
+               <span className={styles.janani}>Janani</span> is a national movement and an immersive experience
                 celebrating the strength of motherhood, the potential of women,
                 and their power to build stronger families, communities and a
                 better nation.
@@ -94,8 +93,8 @@ export default function AboutJanani() {
             </div>
 
             <div className={styles.flowerCore}>
-              <span>JANANI</span>
-              <strong>2026</strong>
+    
+              <strong>Janani</strong>
             </div>
           </div>
 

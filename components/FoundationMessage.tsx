@@ -16,8 +16,7 @@ export default function FoundationMessage() {
         {/* SECTION TITLE */}
         <header className={styles.header}>
           <h2>
-            A MESSAGE FROM
-            <br />
+            A <span className={styles.message}>MESSAGE</span><br />FROM
             THE FOUNDATION
           </h2>
 
@@ -64,7 +63,7 @@ export default function FoundationMessage() {
                   &amp; Chairman
                 </p>
 
-                <span>AKIF</span>
+                
               </div>
             </div>
           </article>
@@ -103,15 +102,16 @@ export default function FoundationMessage() {
           {/* QUOTE CARD */}
           <article className={styles.quoteCard}>
             <div className={styles.quoteMeta}>
-              <span>From the official message</span>
-              <span>JANANI / 2026</span>
+             
             </div>
 
             <blockquote className={styles.quote}>
-              “A VISIONARY INITIATIVE
+              “A VISIONARY INITIATIVE THAT
               <br />
-              THAT EMBODIES THE VALUES
+              EMBODIES 
               <br />
+              THE VALUES
+                <br />
               CHERISHED BY BHARAT RATNA
               <br />
               DR. A.P.J. ABDUL KALAM.”

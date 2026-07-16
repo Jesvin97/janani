@@ -48,7 +48,7 @@ export default function Legacy() {
               <br />
               RISE.
               <br />
-              TRANSFORM.
+              <span className={styles.transform}>TRANSFORM.</span>
             </h3>
 
             <p>
@@ -88,7 +88,8 @@ export default function Legacy() {
             <span className={styles.quoteMark}>“</span>
 
             <blockquote>
-              Dream, dream, dreams transform into thoughts and thoughts
+              Dream, <span className={styles.dream}>dream</span>, 
+              dreams transform into thoughts and thoughts and thoughts
               result in action.
             </blockquote>
 

@@ -93,7 +93,7 @@ export default function LegacyPage() {
 
       <section className={styles.hero}>
         <Image
-          src="/images/kalam.webp"
+          src="/images/kalam.png"
           alt="Portrait of Dr. A. P. J. Abdul Kalam"
           fill
           priority

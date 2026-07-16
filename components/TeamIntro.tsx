@@ -5,7 +5,7 @@ import styles from "../styles/TeamIntro.module.css";
 const groups = [
   {
     index: "01",
-    label: "Kalam's Family",
+    label: "House of Kalam",
      
   },
   {

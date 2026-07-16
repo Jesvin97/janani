@@ -54,6 +54,10 @@
   color: #a4a4a4;
 }
 
+.transform {
+  color: #DBA657;
+  font-weight: 600;
+}
 /* =========================
    GRID
 ========================= */
@@ -266,6 +270,11 @@
   letter-spacing: 0.02em;
 }
 
+.dream {
+  color: #DBA657;
+  font-weight: 600;
+}
+
 /* =========================
    TABLET
 ========================= */
@@ -426,18 +435,21 @@
    LEGACY CTA
 ========================================================= */
 
+
 .legacyButton {
-  width: min(100%, 390px);
-  height: 88px;
+  width: min(100%, 500px);
+  min-height: 104px;
 
   margin-top: 44px;
-  padding: 8px 8px 8px 34px;
+  padding: 8px 10px 8px 54px;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
 
   background: #0346ff;
   color: #ffffff;
@@ -446,16 +458,17 @@
 
   text-decoration: none;
 
-  overflow: hidden;
-  isolation: isolate;
-
   cursor: pointer;
 
   transition:
-    background 0.35s ease,
-    color 0.35s ease,
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* =========================================================
+   BUTTON TEXT
+========================================================= */
 
 .legacyButtonText {
   position: relative;
@@ -463,56 +476,59 @@
 
   font-family: "Satoshi", sans-serif;
 
-  font-size: 20px;
+  font-size: clamp(24px, 2vw, 34px);
   font-weight: 500;
 
   line-height: 1;
 
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
 
   white-space: nowrap;
 
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
 .legacyButtonIcon {
-  width: 72px;
-  height: 72px;
+  width: 86px;
+  height: 86px;
 
-  flex: 0 0 72px;
-
-  position: relative;
-  z-index: 2;
+  flex: 0 0 86px;
 
   display: grid;
   place-items: center;
 
-  background: #003bd8;
+  position: relative;
+  z-index: 2;
+
+  background: rgba(0, 0, 0, 0.12);
 
   border-radius: 50%;
 
   overflow: hidden;
 
   transition:
-    background 0.35s ease,
+    background 0.4s ease,
+    color 0.4s ease,
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/*
-  IMPORTANT:
-  This prevents global SVG styles from
-  turning the arrow into a giant graphic.
-*/
+/* =========================================================
+   ARROW
+========================================================= */
 
 .legacyButtonIcon .legacyArrow {
-  width: 28px !important;
-  height: 28px !important;
+  width: 35px !important;
+  height: 35px !important;
 
-  min-width: 28px !important;
-  min-height: 28px !important;
+  min-width: 35px !important;
+  min-height: 35px !important;
 
-  max-width: 28px !important;
-  max-height: 28px !important;
+  max-width: 35px !important;
+  max-height: 35px !important;
 
   display: block;
 
@@ -525,34 +541,8 @@
   color: #ffffff;
 
   overflow: visible;
-}
 
-/* =========================================================
-   BUTTON BACKGROUND MOTION
-========================================================= */
-
-.legacyButton::before {
-  content: "";
-
-  width: 90px;
-  height: 90px;
-
-  position: absolute;
-
-  top: 50%;
-  right: 0;
-
-  z-index: 1;
-
-  background: #dedee0;
-
-  border-radius: 50%;
-
-  transform: translate(10%, -50%) scale(0);
-
-  transform-origin: center;
-
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: color 0.4s ease;
 }
 
 /* =========================================================
@@ -560,21 +550,19 @@
 ========================================================= */
 
 .legacyButton:hover {
+  background: #dedee0;
   color: #000000;
 
-  transform: translateY(-2px);
-}
-
-.legacyButton:hover::before {
-  transform: translate(10%, -50%) scale(6);
+  transform: translateY(-3px);
 }
 
 .legacyButton:hover .legacyButtonText {
-  transform: translateX(8px);
+  transform: translateX(6px);
 }
 
 .legacyButton:hover .legacyButtonIcon {
-  background: #000000;
+  background: #dba657;
+  color: #ffffff;
 
   transform: rotate(45deg);
 }
@@ -588,7 +576,7 @@
 ========================================================= */
 
 .legacyButton:active {
-  transform: scale(0.985);
+  transform: translateY(0) scale(0.99);
 }
 
 /* =========================================================
@@ -598,4 +586,40 @@
 .legacyButton:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 5px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .legacyButton {
+    width: 100%;
+    min-height: 82px;
+
+    margin-top: 32px;
+    padding: 7px 8px 7px 30px;
+  }
+
+  .legacyButtonText {
+    font-size: clamp(20px, 5vw, 25px);
+  }
+
+  .legacyButtonIcon {
+    width: 68px;
+    height: 68px;
+
+    flex-basis: 68px;
+  }
+
+  .legacyButtonIcon .legacyArrow {
+    width: 28px !important;
+    height: 28px !important;
+
+    min-width: 28px !important;
+    min-height: 28px !important;
+
+    max-width: 28px !important;
+    max-height: 28px !important;
+  }
 }
