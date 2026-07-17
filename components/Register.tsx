@@ -75,8 +75,11 @@ export default function Register() {
       console.error(error);
       setStatus("error");
     } else {
-      const insertedId = data?.[0]?.id;
-      const formattedId = `JAN26-${String(insertedId || Math.floor(Math.random() * 1000)).padStart(3, '0')}`;
+      const insertedId = data?.[0]?.id || "";
+      // Since Supabase uses long UUIDs (e.g. c171eed9-...), we take the first 6 characters
+      // to create a clean, short Ticket ID like JAN26-C171EE
+      const shortId = typeof insertedId === "string" ? insertedId.substring(0, 6).toUpperCase() : Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const formattedId = `JAN26-${shortId}`;
       
       setTicketData({
         name,
