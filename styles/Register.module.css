@@ -237,9 +237,16 @@
   gap: 12px;
 }
 
-.socials span {
+.socials a {
   font-size: 9px;
   font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.socials a:hover {
+  opacity: 0.7;
 }
 
 /* =========================
