@@ -64,7 +64,7 @@ export default function Register() {
 
     const { error } = await supabase
       .from("registrations")
-      .insert([{ name, email, phone, message }]);
+      .insert([{ name, email, phone }]);
 
     if (error) {
       console.error(error);
@@ -176,7 +176,7 @@ export default function Register() {
             <div className={styles.contactGrid}>
               <div>
                 <h4>CONTACT US</h4>
-                <p>+91 910 123 4567</p>
+                <p>+91 85909 36816</p>
               </div>
 
               <div>
@@ -190,16 +190,17 @@ export default function Register() {
 
               <div>
                 <h4>EMAIL</h4>
-                <p>info@janani2026.com</p>
+                <p>drjerry@myjanani.in</p>
               </div>
 
               <div>
                 <h4>FOLLOW US</h4>
 
                 <div className={styles.socials}>
-                  <span>IG</span>
-                  <span>IN</span>
-                  <span>YT</span>
+                  <a href="https://www.instagram.com/myjanani_/" target="_blank" rel="noopener noreferrer">IG</a>
+                  <a href="https://www.linkedin.com/in/my-janani-a1931b420/" target="_blank" rel="noopener noreferrer">IN</a>
+                  <a href="https://www.facebook.com/people/My-Janani/" target="_blank" rel="noopener noreferrer">FB</a>
+                  <a href="https://www.youtube.com/@my_janani/shorts" target="_blank" rel="noopener noreferrer">YT</a>
                 </div>
               </div>
             </div>
