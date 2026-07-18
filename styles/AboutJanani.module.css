@@ -498,9 +498,8 @@
 
   .contentPanel {
     min-height: 100svh;
-
+    height: auto;
     padding: 40px 28px 34px;
-
     border-radius: 30px;
   }
 
@@ -509,11 +508,12 @@
   }
 
   .contentBody {
+    flex: 1 0 auto;
     justify-content: flex-start;
   }
 
   .title {
-    margin-top: clamp(100px, 15vh, 150px);
+    margin-top: 20px;
 
     font-size: clamp(64px, 19vw, 92px);
     line-height: 0.84;
@@ -521,7 +521,7 @@
     letter-spacing: -0.06em;
   }
   .What{
-    font-size: 120px;
+    font-size: clamp(80px, 25vw, 120px);
     line-height: 0.84;
 
     letter-spacing: -0.06em;
