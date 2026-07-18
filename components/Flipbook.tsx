@@ -43,6 +43,17 @@ export default function Flipbook({ file }: FlipbookProps) {
     setNumPages(numPages);
   }
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className={styles.container}>
       <Document file={file} onLoadSuccess={onLoadSuccess}>
@@ -63,7 +74,7 @@ export default function Flipbook({ file }: FlipbookProps) {
             startPage={0}
             drawShadow
             flippingTime={700}
-            usePortrait={false}
+            usePortrait={isMobile}
             startZIndex={0}
             autoSize
             clickEventForward
