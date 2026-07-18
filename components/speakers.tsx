@@ -71,7 +71,7 @@ const speakers: Speaker[] = [
   },
 
   // Uncomment these when images are available
-  /*
+  
   {
     name: "Leema Jacob",
     role: "Politician",
@@ -80,102 +80,102 @@ const speakers: Speaker[] = [
   {
     name: "Arathy Krishna",
     role: "Bodybuilder",
-    image: null,
+    image: "/images/Arathy Krishnan.png",
   },
   {
     name: "Nisary Mahesh",
     role: "CEO, HerMoneyTalks",
-    image: null,
+    image: "/images/Nisary Mahesh.png",
   },
   {
     name: "Melani Shibu",
     role: "Professional",
-    image: null,
+    image: "/images/Melani Shibu.png",
   },
   {
     name: "Ashwathy Rajendran",
     role: "Academic Researcher",
-    image: null,
+    image: "/images/Ashwathy Rajendran.png",
   },
   {
     name: "Anupa Krishnan",
     role: "Model",
-    image: null,
+    image: "/images/Anupa Krishnan.png",
   },
   {
     name: "Vardhini Sharma",
     role: "Singer",
-    image: null,
+    image: "/images/Vardhini Sharma.png",
   },
   {
     name: "Priyanka Nair",
     role: "Actress",
-    image: null,
+    image: "/images/Priyanka Nair.png",
   },
   {
     name: "Anju Bobby George",
     role: "Athlete",
-    image: null,
+    image: "/images/Anju Bobby George.png",
   },
   {
     name: "Dr. Rupa Mathew",
     role: "Doctor",
-    image: null,
+    image: "/images/Dr. Rupa Mathew.png",
   },
   {
     name: "RJ Neena",
     role: "Radio Jockey",
-    image: null,
+    image: "/images/RJ Neena.png",
   },
   {
     name: "Sajna Sudheer",
     role: "Television Personality",
-    image: null,
+    image: "/images/Sajna Sudheer.png",
   },
   {
     name: "Safrina Latheef",
     role: "Professional",
-    image: null,
+    image: "/images/Safrina Latheef.png",
   },
   {
     name: "Latha K",
     role: "Professional",
-    image: null,
+    image: "/images/Latha K",
   },
   {
     name: "Uma Preman",
     role: "Social Activist",
-    image: null,
+    image: "/images/Uma Preman.png",
   },
   {
     name: "Anju Bist",
     role: "Professional",
-    image: null,
+    image: "/images/Anju Bist.png",
   },
   {
     name: "Nibha Namboodiri",
     role: "Professional",
-    image: null,
+    image: "/images/Nibha Namboodiri.png",
   },
   {
     name: "Soumya Thomas",
     role: "Professional",
-    image: null,
+    image: "/images/Soumya Thomas.png",
   },
   {
     name: "Dr. Sneha Raju",
     role: "Doctor",
-    image: null,
+    image: "/images/Dr. Sneha Raju.png",
   },
   {
     name: "Dr. Amrita Sabu",
     role: "Doctor",
-    image: null,
+    image: "null",
   },
   {
     name: "Jeemol Koruth Verghese",
     role: "Professional",
-    image: null,
+    image: "/images/Jeemol Koruth Verghese",
   },
   {
     name: "Justice Mary Joseph",
@@ -185,29 +185,29 @@ const speakers: Speaker[] = [
   {
     name: "Nisha Jose K. Mani",
     role: "Public Figure",
-    image: null,
+    image: "/images/Nisha Jose K. Mani",
   },
   {
     name: "Amritha Rajan",
     role: "Professional",
-    image: null,
+    image: "/images/Amritha Rajan",
   },
   {
     name: "Raaga Sankar",
     role: "Professional",
-    image: null,
+    image: "/images/Raaga Shankar.png",
   },
   {
     name: "Anila Rajeev",
     role: "Professional",
-    image: null,
+    image: "/images/Anila Rajeev.png",
   },
   {
     name: "Lena",
     role: "Actress",
     image: null,
   },
-  */
+  
 ];
 
 /* ===========================
