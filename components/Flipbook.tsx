@@ -46,10 +46,14 @@ export default function Flipbook({ file }: FlipbookProps) {
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
+  const [windowHeight, setWindowHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 800
+  );
 
   React.useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
