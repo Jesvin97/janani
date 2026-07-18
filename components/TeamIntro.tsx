@@ -99,7 +99,6 @@ export default function TeamIntro() {
 
           <Link href="/team" className={styles.cta}>
             <span>Meet our team</span>
-            <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </div>

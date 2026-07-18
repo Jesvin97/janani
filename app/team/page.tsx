@@ -182,12 +182,6 @@ export default function TeamPage() {
                           {member.id}
                         </span>
 
-                        <div
-                          className={styles.blueMark}
-                          aria-hidden="true"
-                        >
-                          <span>J</span>
-                        </div>
                       </div>
 
                       <div className={styles.cardContent}>
@@ -201,7 +195,6 @@ export default function TeamPage() {
 
                         <div className={styles.cardFooter}>
                           <span>JANANI 2026</span>
-                          <span aria-hidden="true">↗</span>
                         </div>
                       </div>
                     </article>
