@@ -10,7 +10,8 @@ import AboutJanani from "@/components/AboutJanani";
 import ChairmanMessage from "@/components/ChairmanMessage";
 import FoundationMessage from "@/components/FoundationMessage";
 import TeamIntro from "@/components/TeamIntro";
-import Flipbook from "@/components/Flipbook";
+import dynamic from "next/dynamic";
+const Flipbook = dynamic(() => import("@/components/Flipbook"), { ssr: false });
 
 export default function Home() {
   return (
