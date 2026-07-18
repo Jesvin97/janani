@@ -5,7 +5,7 @@ import WhyAttend from "@/components/WhyAttend";
 import Stakeholders from "@/components/stakeholders";
 import Register from "@/components/Register";
 import Legacy from "@/components/Legacy";
-import FAQ from "@/components/FAQ";
+
 import AboutJanani from "@/components/AboutJanani";
 import ChairmanMessage from "@/components/ChairmanMessage";
 import FoundationMessage from "@/components/FoundationMessage";

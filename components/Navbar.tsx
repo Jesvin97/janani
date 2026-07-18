@@ -1,20 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "../styles/Navbar.module.css";
 
 const navLinks = [
   { label: "About", href: "/" },
   { label: "Schedule", href: "/schedule" },
-  { label: "Speakers", href: "/speakers" },
-  { label: "Tickets", href: "/tickets" },
-  { label: "Venue", href: "/venue" },
-  { label: "Sponsors", href: "/sponsors" },
+  { label: "Speakers", href: "/#speakers" },
+  { label: "Tickets", href: "/#register" },
+  { label: "Venue", href: "/#register" },
+  { label: "Partners & Sponsors", href: "/sponsors" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Helper to determine if a link is active
+  const isLinkActive = (href: string) => {
+    // If it's the home page, only match exactly "/"
+    if (href === "/") return pathname === "/";
+    // If it's a hash link on the home page, we won't highlight it globally as "active" 
+    // unless we implement scrollspy. For now, it prevents "About" from staying active.
+    if (href.startsWith("/#")) return false; 
+    return pathname === href;
+  };
 
   return (
     <header className={styles.header}>
@@ -24,12 +37,12 @@ export default function Navbar() {
         </Link>
 
         <div className={styles.desktopNav}>
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               className={`${styles.navLink} ${
-                index === 0 ? styles.active : ""
+                isLinkActive(link.href) ? styles.active : ""
               }`}
             >
               {link.label}

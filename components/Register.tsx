@@ -1,6 +1,9 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState, useRef } from "react";
+import { supabase } from "../lib/supabase";
+import { QRCodeSVG } from "qrcode.react";
+import html2canvas from "html2canvas";
 import styles from "../styles/Register.module.css";
 
 const EVENT_DATE = new Date("2026-07-24T09:00:00");
@@ -20,6 +23,14 @@ export default function Register() {
     minutes: 0,
     seconds: 0,
   });
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [ticketData, setTicketData] = useState<{name: string, id: string} | null>(null);
+  const ticketRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateCountdown = () => {
@@ -51,9 +62,58 @@ export default function Register() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setStatus("loading");
+
+    const { data, error } = await supabase
+      .from("registrations")
+      .insert([{ name, email, phone, category }])
+      .select();
+
+    if (error) {
+      console.error(error);
+      setStatus("error");
+    } else {
+      const insertedId = data?.[0]?.id || "";
+      // Since Supabase uses long UUIDs (e.g. c171eed9-...), we take the first 6 characters
+      // to create a clean, short Ticket ID like JAN26-C171EE
+      const shortId = typeof insertedId === "string" ? insertedId.substring(0, 6).toUpperCase() : Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      const formattedId = `JAN26-${shortId}`;
+      
+      setTicketData({
+        name,
+        id: formattedId
+      });
+      
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setCategory("");
+    }
   };
+
+  const downloadTicket = () => {
+    if (ticketRef.current && ticketData) {
+      html2canvas(ticketRef.current, { backgroundColor: "#1c1a1b" }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = `JANANI2026-Ticket-${ticketData.name}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (status === "success" && ticketData) {
+      // Give the DOM a tiny amount of time to render the ticket fully before snapshotting
+      const timer = setTimeout(() => {
+        downloadTicket();
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [status, ticketData]);
 
   return (
     <section className={styles.section} id="register">
@@ -153,7 +213,7 @@ export default function Register() {
             <div className={styles.contactGrid}>
               <div>
                 <h4>CONTACT US</h4>
-                <p>+91 910 123 4567</p>
+                <p>+91 85909 36816</p>
               </div>
 
               <div>
@@ -167,23 +227,25 @@ export default function Register() {
 
               <div>
                 <h4>EMAIL</h4>
-                <p>info@janani2026.com</p>
+                <p>drjerry@myjanani.in</p>
               </div>
 
               <div>
                 <h4>FOLLOW US</h4>
 
                 <div className={styles.socials}>
-                  <span>IG</span>
-                  <span>IN</span>
-                  <span>YT</span>
+                  <a href="https://www.instagram.com/myjanani_/" target="_blank" rel="noopener noreferrer">IG</a>
+                  <a href="https://www.linkedin.com/in/my-janani-a1931b420/" target="_blank" rel="noopener noreferrer">IN</a>
+                  <a href="https://www.facebook.com/people/My-Janani/" target="_blank" rel="noopener noreferrer">FB</a>
+                  <a href="https://www.youtube.com/@my_janani/shorts" target="_blank" rel="noopener noreferrer">YT</a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* FORM */}
+          {/* FORM OR TICKET */}
 
+          {status !== "success" ? (
           <form className={styles.form} onSubmit={handleSubmit}>
             <h3>REGISTER NOW</h3>
 
@@ -194,28 +256,99 @@ Gain exclusive access to expert-led sessions, networking opportunities, and indu
 
             <input type="text" 
             placeholder="Name" 
-            aria-label="Name" />
+            aria-label="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            />
 
             <input type="email"
              placeholder="Email" 
-             aria-label="Email" />
+             aria-label="Email"
+             value={email}
+             onChange={(e) => setEmail(e.target.value)}
+             required
+             />
 
             <input
               type="tel"
               placeholder="Phone Number"
               aria-label="Phone Number"
               pattern="[0-9]{10,15}"
-  required
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
 
-            <textarea
-              placeholder="Message"
-              aria-label="Message"
-              rows={3}
-            />
+            <select
+              aria-label="Category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>Select Category</option>
+              <option value="Student">Student</option>
+              <option value="Professional">Professional</option>
+              <option value="Entrepreneur">Entrepreneur</option>
+              <option value="Other">Other</option>
+            </select>
 
-            <button type="submit">Register</button>
+            <button type="submit" disabled={status === "loading"}>
+              {status === "loading" ? "Registering..." : "Register"}
+            </button>
+            {status === "error" && <p style={{color: "#ef4444", marginTop: "1rem"}}>Error submitting form. Please try again.</p>}
           </form>
+          ) : (
+            <div className={styles.ticketContainer}>
+              <div ref={ticketRef} style={{ padding: "20px", background: "#1c1a1b" }}>
+                <div className={styles.ticketHeader}>
+                  JANANI 2026
+                  <br />
+                  EVENT PASS
+                </div>
+
+                <div className={styles.ticketDivider}></div>
+
+                <div className={styles.ticketQR}>
+                  <QRCodeSVG 
+                    value={`JANANI 2026 Event Pass\nID: ${ticketData?.id}\nName: ${ticketData?.name}\nDate: 24 July 2026, 08:00 AM\nLocation: St. Teresa's College, Ernakulam`} 
+                    size={80} 
+                  />
+                </div>
+
+                <div className={styles.ticketField}>
+                  <span>Name</span>
+                  {ticketData?.name}
+                </div>
+                
+                <div className={styles.ticketField}>
+                  <span>ID</span>
+                  {ticketData?.id}
+                </div>
+
+                <div className={styles.ticketField}>
+                  <span>Date</span>
+                  24 JULY 2026
+                </div>
+
+                <div className={styles.ticketField}>
+                  <span>Location</span>
+                  St. Teresa's College
+                  <br />
+                  Ernakulam
+                </div>
+                
+                <div className={styles.ticketDivider}></div>
+              </div>
+
+              <div style={{ marginTop: "10px" }}>
+                Please take a screenshot or download your ticket.
+                <button onClick={downloadTicket} className={styles.ticketDownloadBtn}>
+                  [Download Ticket]
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* MAP */}
 
