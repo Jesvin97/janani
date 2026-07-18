@@ -80,7 +80,7 @@ const speakers: Speaker[] = [
   {
     name: "Arathy Krishna",
     role: "Bodybuilder",
-    image: "/images/Arathy Krishnan.png",
+    image: "/images/Arathy Krishna.png",
   },
   {
     name: "Nisary Mahesh",
@@ -140,7 +140,7 @@ const speakers: Speaker[] = [
   {
     name: "Latha K",
     role: "Professional",
-    image: "/images/Latha K",
+    image: "/images/Latha K.png",
   },
   {
     name: "Uma Preman",
@@ -175,7 +175,7 @@ const speakers: Speaker[] = [
   {
     name: "Jeemol Koruth Verghese",
     role: "Professional",
-    image: "/images/Jeemol Koruth Verghese",
+    image: "/images/Jeemol Koruth Verghese.png",
   },
   {
     name: "Justice Mary Joseph",
@@ -185,12 +185,12 @@ const speakers: Speaker[] = [
   {
     name: "Nisha Jose K. Mani",
     role: "Public Figure",
-    image: "/images/Nisha Jose K. Mani",
+    image: "/images/Nisha Jose K Mani.png",
   },
   {
     name: "Amritha Rajan",
     role: "Professional",
-    image: "/images/Amritha Rajan",
+    image: "/images/Amritha Rajan.png",
   },
   {
     name: "Raaga Sankar",
